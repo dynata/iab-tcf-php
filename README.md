@@ -5,6 +5,31 @@ This project includes a PHP Library for working with:
 * IAB's [Transparency & Consent Framework v1.1](https://github.com/InteractiveAdvertisingBureau/GDPR-Transparency-and-Consent-Framework/blob/master/Consent%20string%20and%20vendor%20list%20formats%20v1.1%20Final.md)
 * IAB's [Transparency & Consent Framework v2.0](https://github.com/InteractiveAdvertisingBureau/GDPR-Transparency-and-Consent-Framework/blob/master/TCFv2/IAB%20Tech%20Lab%20-%20Consent%20string%20and%20vendor%20list%20formats%20v2.md)
 
+## Installation
+
+Set-up github authentication in composer
+
+```
+composer config --global --auth github-oauth.github.com <token>
+```
+
+Add the repo to your composer.json file
+
+```
+"repositories":[
+    {
+        "type": "vcs",
+        "url": "https://github.com/dynata/iab-tcf-php.git"
+    }
+]
+```
+
+Run Composer install
+
+```
+composer install dynata/iabtcf
+```
+
 ## Usage
 
 ### Decode a Consent String
