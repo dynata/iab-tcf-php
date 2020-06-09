@@ -23,8 +23,8 @@ abstract class Range {
 		for ($i = 1; $i <= $maxId; $i++) {
 			if (
 				(
-					$defaultConsent && ! $idMap[$i] ||
-					! $defaultConsent && $idMap[$i]
+					$defaultConsent && (! isset($idMap[$i]) || ! $idMap[$i]) ||
+					! $defaultConsent && isset($idMap[$i]) && $idMap[$i]
 				) && array_search($i, $allowedIds) === false
 			) {
 				$allowedIds[] = $i;
