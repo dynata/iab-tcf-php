@@ -1,0 +1,33 @@
+{
+    "name": "dynata/iabconsent",
+    "description": "IAB Consent String Decoder & Encoder",
+    "version": "1.0.0",
+    "type": "library",
+    "keywords": [
+        "IAB",
+        "Consent String",
+        "TCF",
+        "TCFv2"
+    ],
+    "authors": [
+        {
+            "name": "Nicolas Bringas",
+            "email": "nicolas.bringas@dynata.com"
+        }
+    ],
+    "require": {
+        "php": "^7.0",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "IABTcf\\": "src/"
+        }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/dynata/iab-tcf-php"
+        }
+    ]
+}
