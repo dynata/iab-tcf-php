@@ -23,11 +23,5 @@
         "psr-4": {
             "IABTcf\\": "src/"
         }
-    },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/dynata/iab-tcf-php"
-        }
-    ]
+    }
 }
