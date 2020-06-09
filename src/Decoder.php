@@ -15,14 +15,14 @@ class Decoder implements DecoderIFace
 	private function __construct(){}
 
 	/**
-	 * @param $consentString
+	 * @param string $consentString
 	 * @return ConsentString
 	 * @throws UnsupportedVersionException
 	 * @throws InvalidVersionException
 	 * @throws InvalidConsentStringException
 	 * @throws InvalidSegmentException
 	 */
-	public static function decode($consentString): ConsentString
+	public static function decode(string $consentString): ConsentString
 	{
 		$csSplit = explode(".", $consentString);
 		$version = Bits::extractVersion(Bits::decodeFromBase64($csSplit[0]));
