@@ -1,6 +1,6 @@
 {
-    "name": "dynata/iabconsent",
-    "description": "IAB Consent String Decoder & Encoder",
+    "name": "dynata/iabtcf",
+    "description": "IAB TCF Consent String Decoder & Encoder",
     "version": "1.0.0",
     "type": "library",
     "keywords": [
