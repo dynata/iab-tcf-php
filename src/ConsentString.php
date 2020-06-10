@@ -8,16 +8,16 @@ class ConsentString implements ConsentStringIFace {
 	protected $created = null;
 	protected $lastUpdated = null;
 	protected $version = 1;
-	protected $vendorListVersion = null;
-	protected $cmpId = null;
-	protected $cmpVersion = null;
-	protected $tcfPolicyVersion = null;
-	protected $consentScreen = null;
-	protected $consentLanguage = null;
-	protected $isServiceSpecific = null;
-	protected $purposeOneTreatment = null;
-	protected $useNonStandardStacks = null;
-	protected $publisherCC = null;
+	protected $vendorListVersion = 1;
+	protected $cmpId = 0;
+	protected $cmpVersion = 0;
+	protected $tcfPolicyVersion = 1;
+	protected $consentScreen = 0;
+	protected $consentLanguage = '';
+	protected $isServiceSpecific = false;
+	protected $purposeOneTreatment = false;
+	protected $useNonStandardStacks = false;
+	protected $publisherCC = '';
 	protected $allowedVendorIds = [];
 	protected $specialFeatureOptIns = [];
 	protected $purposesConsentIds = [];
@@ -41,6 +41,12 @@ class ConsentString implements ConsentStringIFace {
 			if (property_exists($this, $key)) {
 				$this->{$key} = $value;
 			}
+		}
+		if (is_null($this->created)) {
+			$this->created = new DateTime();
+		}
+		if (is_null($this->lastUpdated)) {
+			$this->lastUpdated = new DateTime();
 		}
 	}
 
