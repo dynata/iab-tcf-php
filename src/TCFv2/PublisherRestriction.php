@@ -33,9 +33,9 @@ class PublisherRestriction implements PublisherRestrictionIFace {
 	public function toArray(): array
 	{
 		return [
-			'purpose_id' => $this->purposeId,
-			'restriction_type' => $this->restrictionType->getId(), // force to_string
-			'vendor_ids' => $this->vendorIds,
+			'purposeId' => $this->purposeId,
+			'restrictionType' => $this->restrictionType->getId(), // force to_string
+			'vendorIds' => $this->vendorIds,
 		];
 	}
 
