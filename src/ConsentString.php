@@ -45,6 +45,53 @@ class ConsentString implements ConsentStringIFace {
 	}
 
 	/**
+	 * @return string
+	 */
+	public function __toString(): string
+	{
+		$arr = $this->toArray();
+		$arr['created'] = $arr['created']->format("c");
+		$arr['lastUpdated'] = $arr['lastUpdated']->format("c");
+
+		return json_encode($arr);
+	}
+
+	public function toArray(): array
+	{
+		$pubRestrictions = [];
+		foreach ($this->pubRestrictions as $restriction) {
+			$pubRestrictions[] = $restriction->toArray();
+		}
+		return [
+			'created' => $this->created,
+			'lastUpdated' => $this->lastUpdated,
+			'version' => $this->version,
+			'vendorListVersion' => $this->vendorListVersion,
+			'cmpId' => $this->cmpId,
+			'cmpVersion' => $this->cmpVersion,
+			'tcfPolicyVersion' => $this->tcfPolicyVersion,
+			'consentScreen' => $this->consentScreen,
+			'consentLanguage' => $this->consentLanguage,
+			'isServiceSpecific' => $this->isServiceSpecific,
+			'purposeOneTreatment' => $this->purposeOneTreatment,
+			'useNonStandardStacks' => $this->useNonStandardStacks,
+			'publisherCC' => $this->publisherCC,
+			'allowedVendorsIds' => $this->allowedVendorIds,
+			'specialFeatureOptIns' => $this->specialFeatureOptIns,
+			'purposesConsentIds' => $this->purposesConsentIds,
+			'purposesLITransparency' => $this->purposesLITransparency,
+			'vendorConsentIds' => $this->vendorConsentIds,
+			'vendorLegitimateInterests' => $this->vendorLegitimateInterests,
+			'disclosedVendorIds' => $this->disclosedVendorIds,
+			'pubPurposesConsent' => $this->pubPurposesConsent,
+			'pubPurposesLITransparency' => $this->pubPurposesLITransparency,
+			'customPurposesConsent' => $this->customPurposesConsent,
+			'customPurposesLITransparency' => $this->customPurposesLITransparency,
+			'pubRestrictions' => $pubRestrictions,
+		];
+	}
+
+	/**
 	 * @return int
 	 */
 	public function getVersion(): int

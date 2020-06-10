@@ -27,14 +27,16 @@ class PublisherRestriction implements PublisherRestrictionIFace {
 	 */
 	public function __toString(): string
 	{
-		return "PublisherRestriction{"
-	        . "purposeId="
-	        . $this->purposeId
-	        . ", restrictionType="
-	        . $this->restrictionType
-	        . ", vendorIds=["
-	        . implode(", ", $this->vendorIds)
-	        . ']}';
+		return json_encode($this->toArray());
+	}
+
+	public function toArray(): array
+	{
+		return [
+			'purpose_id' => $this->purposeId,
+			'restriction_type' => $this->restrictionType->getId(), // force to_string
+			'vendor_ids' => $this->vendorIds,
+		];
 	}
 
 	/**
