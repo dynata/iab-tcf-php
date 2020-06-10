@@ -55,20 +55,20 @@ abstract class Definitions
 							0 => new Field(
 								'isARange',
 								'bool',
-								function() { return 1; },
+								function() { return 1; }
 							),
 							1 => new Field(
 								'startId',
 								'int',
-								function() { return 16; },
+								function() { return 16; }
 							),
 							2 => new Field(
 								'endId',
 								'int',
 								function() { return 16; },
-								function($obj) { return $obj["isARange"]; },
+								function($obj) { return $obj["isARange"]; }
 							),
-						],
+						]
 					),
 					21 => new Field('legitimateInterestsMaxVendorId', 'int', function() { return 16; }),
 					22 => new Field('legitimateInterestsIsRangeEncoding', 'bool', function() { return 1; }),
@@ -76,13 +76,13 @@ abstract class Definitions
 						'legitimateInterestsVendorIdBitString',
 						'bits',
 						function($obj) { return $obj["legitimateInterestsMaxVendorId"]; },
-						function($obj) { return ! $obj["legitimateInterestsIsRangeEncoding"]; },
+						function($obj) { return ! $obj["legitimateInterestsIsRangeEncoding"]; }
 					),
 					24 => new Field(
 						'legitimateInterestsNumEntries',
 						'int',
 						function() { return 12; },
-						function($obj) { return $obj["legitimateInterestsIsRangeEncoding"]; },
+						function($obj) { return $obj["legitimateInterestsIsRangeEncoding"]; }
 					),
 					25 => new Field(
 						'legitimateInterestsVendorRangeList',
@@ -99,7 +99,7 @@ abstract class Definitions
 								function() { return 16; },
 								function ($obj) { return $obj["isARange"]; }
 							),
-						],
+						]
 					),
 					26 => new Field('numPubRestrictions', 'int', function() { return 12; }),
 					27 => new Field(
@@ -127,9 +127,9 @@ abstract class Definitions
 										function() { return 16; },
 										function($obj) { return $obj["isARange"]; }
 									),
-								],
+								]
 							),
-						],
+						]
 					),
 				],
 			],
@@ -165,7 +165,7 @@ abstract class Definitions
 								function() { return 16; },
 								function($obj) { return $obj["isARange"]; }
 							),
-						],
+						]
 					),
 				],
 			],
@@ -201,7 +201,7 @@ abstract class Definitions
 								function() { return 16; },
 								function ($obj) { return $obj["isARange"]; }
 							),
-						],
+						]
 					),
 				],
 			],

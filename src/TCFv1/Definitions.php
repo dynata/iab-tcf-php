@@ -67,7 +67,7 @@ abstract class Definitions {
 								function() { return 16; },
 								function($obj) { return $obj["isARange"]; }
 							),
-						],
+						]
 					),
 				],
 			],
