@@ -82,7 +82,7 @@ class ConsentString implements ConsentStringIFace {
 			'purposeOneTreatment' => $this->purposeOneTreatment,
 			'useNonStandardStacks' => $this->useNonStandardStacks,
 			'publisherCC' => $this->publisherCC,
-			'allowedVendorsIds' => $this->allowedVendorIds,
+			'allowedVendorIds' => $this->allowedVendorIds,
 			'specialFeatureOptIns' => $this->specialFeatureOptIns,
 			'purposesConsentIds' => $this->purposesConsentIds,
 			'purposesLITransparency' => $this->purposesLITransparency,
