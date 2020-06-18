@@ -31,8 +31,8 @@ final class DecoderTest extends TestCase
 		$this->assertEquals(27, $consentDataBits->getVendorListVersion());
 		$this->assertEquals(new DateTime("2018-05-23T07:58:14.000Z"), $consentDataBits->getCreated());
 		$this->assertEquals(new DateTime("2018-05-24T12:47:40.000Z"), $consentDataBits->getLastUpdated());
-		$this->assertEquals([1, 2, 3, 4, 5], $consentDataBits->getAllowedPurposes());
-		$this->assertEquals($allowedVendorIds, $consentDataBits->getAllowedVendors());
+		$this->assertEquals([1, 2, 3, 4, 5], $consentDataBits->getPurposesConsent());
+		$this->assertEquals($allowedVendorIds, $consentDataBits->getVendorConsent());
 	}
 
 	/**
@@ -56,7 +56,7 @@ final class DecoderTest extends TestCase
 		$this->assertEquals(27, $consentDataRange->getVendorListVersion());
 		$this->assertEquals(new DateTime("2018-05-23T07:58:14.000Z"), $consentDataRange->getCreated());
 		$this->assertEquals(new DateTime("2018-05-24T12:47:40.000Z"), $consentDataRange->getLastUpdated());
-		$this->assertEquals([1, 2, 3, 4, 5], $consentDataRange->getAllowedPurposes());
-		$this->assertEquals($allowedVendorIds, $consentDataRange->getAllowedVendors());
+		$this->assertEquals([1, 2, 3, 4, 5], $consentDataRange->getPurposesConsent());
+		$this->assertEquals($allowedVendorIds, $consentDataRange->getVendorConsent());
 	}
 }

@@ -20,9 +20,9 @@ abstract class Decoder {
 		$decoded = Bits::decodeConsentStringBitValue(Bits::decodeFromBase64($csSplit[0]), $versionMap[0]);
 		$decoded['purposesConsentIds'] = Bits::decodeBitsToIds($decoded['purposeIdBitString']);
 		if ($decoded['vendorConsentIsRangeEncoding']) {
-			$decoded['allowedVendorIds'] = Range::decodeRange($decoded['vendorConsentMaxVendorId'], $decoded['vendorConsentRangeList'] , $decoded['defaultConsent']);
+			$decoded['vendorConsentIds'] = Range::decodeRange($decoded['vendorConsentMaxVendorId'], $decoded['vendorConsentRangeList'] , $decoded['defaultConsent']);
 		} else {
-			$decoded['allowedVendorIds'] = Bits::decodeBitsToIds($decoded['vendorIdBitString']);
+			$decoded['vendorConsentIds'] = Bits::decodeBitsToIds($decoded['vendorIdBitString']);
 		}
 
 		return new ConsentString($decoded);

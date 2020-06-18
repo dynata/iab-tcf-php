@@ -1,4 +1,4 @@
-# PHP Library for Parsing the IAB TCF String
+# PHP Library for Parsing the IAB TC String
 
 This project includes a PHP Library for working with: 
 
