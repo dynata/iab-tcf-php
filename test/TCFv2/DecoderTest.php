@@ -203,6 +203,33 @@ final class DecoderTest extends TestCase
 		$this->assertSame([24], $cs->getPubPurposesLITransparency());
 		$this->assertSame([2], $cs->getCustomPurposesConsent());
 		$this->assertSame([1, 2], $cs->getCustomPurposesLITransparency());
+	}
 
+	/**
+	 * @throws InvalidConsentStringException
+	 * @throws InvalidSegmentException
+	 * @throws InvalidVersionException
+	 * @throws UnsupportedVersionException
+	 */
+	public function testDecodeEmptyPublisherRestrictions() {
+		$cs = Decoder::decode("CPJmIgtPJmIgtAGABCDEBjCgAP_AAEPAAAYgHUhd5DrMTWFAUXxZQtsgGYgU1sQXAGQCCBCAAyABAAGA8AQAsUASEASAAAACAAAAowIBAAAEGAFEAAAAAAAEABAAAAQAgAAIIAJAAAEAAAIAAAgIAAAAAAAAAAAACAAAmAAQI-aABEAAAIAwQgAAAAAAAAAAAAIHBQEAAEAAXAA-AL4AhABFQC6gF6AMCAYoA8gB9gEIALaAaaA4IBIZAEACZAPsA_ACOALzEQBQBDAD8AQ2Ai8BIggACACQJAqAAQAAsACoAGQAOAAgABkADQAHkARABFACYAE8AN4AcwA_ACEAENAIgAiQBLACaAFKALcAYYA1YB9gH6ARoAjgBKQC5gGKANoAbgA9ACGwEXgJEAUOAvMBgwDDQGnANZCgAQBfBAAIAJA0AcALgAhgB-AIbAReAkQBjAqAMAEwALgA_ACOAJBAXmOgZgALAAqABkADgAIAAZAA0AB4AD6AIgAigBMACeAFwAL4AYgA3gBzAD8AIQAQ0AiACJAEsAJgATQApQBYgC3AGGANGAfYB-gEWAI4ASkAuYBeQDFAG0ANwAegBDYCLwEggJEAUOAvMBgwDDQGJAMYAZYA04eABAF8OAAgAkIQEgAFgAZACYAFwAL4AYgA3gCxgH2AfgBHACUgFzAMUAbQA9ACQQEiAMSIgAQBfEoDAACAAFgAZAA4ADwAIgATAAuABfADEAIQAQ0AiACJAFKALcAaoA_ACOAGKANwAi8BIgC8");
+		// pub restrictions
+		$pubRestrictions = $cs->getPublisherRestrictions();
+
+		$this->assertEquals(6, $pubRestrictions[0]->getPurposeId());
+		$this->assertEquals(1, $pubRestrictions[0]->getRestrictionType()->getId());
+		$this->assertEquals([76, 251, 252, 284, 755], $pubRestrictions[0]->getVendorIds());
+
+		$this->assertEquals(4, $pubRestrictions[1]->getPurposeId());
+		$this->assertEquals(1, $pubRestrictions[1]->getRestrictionType()->getId());
+		$this->assertEquals([134, 252, 539, 559, 580], $pubRestrictions[1]->getVendorIds());
+
+		$this->assertEquals(4, $pubRestrictions[2]->getPurposeId());
+		$this->assertEquals(0, $pubRestrictions[2]->getRestrictionType()->getId());
+		$this->assertEquals([36], $pubRestrictions[2]->getVendorIds());
+
+		$this->assertEquals(8, $pubRestrictions[12]->getPurposeId());
+		$this->assertEquals(2, $pubRestrictions[12]->getRestrictionType()->getId());
+		$this->assertEquals([190], $pubRestrictions[12]->getVendorIds());
 	}
 }
