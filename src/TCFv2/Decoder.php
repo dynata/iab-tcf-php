@@ -55,18 +55,20 @@ abstract class Decoder {
 					if (! empty($decoded['pubRestrictions'])) {
 						$returnValue['pubRestrictions'] = [];
 						foreach ($decoded['pubRestrictions'] as $pubRestriction) {
-							$restriction = new RestrictionType($pubRestriction['restrictionType']);
-							$vendorIds = [];
-							foreach ($pubRestriction['vendorIds'] as $vendorId) {
-								if ($vendorId['isARange']) {
-									for ($i = $vendorId['startId']; $i <= $vendorId['endId']; $i++) {
-										$vendorIds[] = $i;
+							if (! empty($pubRestriction['vendorIds'])) {
+								$restriction = new RestrictionType($pubRestriction['restrictionType']);
+								$vendorIds = [];
+								foreach ($pubRestriction['vendorIds'] as $vendorId) {
+									if ($vendorId['isARange']) {
+										for ($i = $vendorId['startId']; $i <= $vendorId['endId']; $i++) {
+											$vendorIds[] = $i;
+										}
+									} else {
+										$vendorIds[] = $vendorId['startId'];
 									}
-								} else {
-									$vendorIds[] = $vendorId['startId'];
 								}
+								$returnValue['pubRestrictions'][] = new PublisherRestriction($pubRestriction['purposeId'], $restriction, $vendorIds);
 							}
-							$returnValue['pubRestrictions'][] = new PublisherRestriction($pubRestriction['purposeId'], $restriction, $vendorIds);
 						}
 					}
 					if ($decoded['vendorConsentIsRangeEncoding']) {
