@@ -4,6 +4,10 @@ name: CI
 
 on:
   pull_request:
+  push:
+    branches:
+      - main
+      - master
 
 jobs:
   tests:
@@ -13,6 +17,9 @@ jobs:
     strategy:
       matrix:
         php-version:
+          - '7.0'
+          - '7.1'
+          - '7.2'
           - '7.3'
           - '7.4'
           - '8.0'
